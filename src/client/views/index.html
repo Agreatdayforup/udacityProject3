@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Travel App</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+   <!--<link rel="stylesheet" href="../styles/styles.css">-->
+  </head>
+ <body id="bodyMain">
+  <h1 class="mainTitle">Travel Planner</h1>
+  <button class="newBtn" onClick="window.location.href=window.location.href">New Trip</button>
+  <div class="row">
+      <div class="leftSide">
+        <div class="formContainer">
+          <div>
+          <form class="form" onsubmit=" handleSubmit(event)">
+            <label for="zip">Enter Destination city here </label>
+            <input type="text" class="dest" placeholder="enter your destination here">
+            <label for="date">Enter date of departure here</label>
+            <input type="date" data-date="" data-date-format="MM-DD-YYYY" id="date" placeholder="enter date of departure here">
+            <input class="myButton" type="submit" name="" value="submit" >
+            <!--<button class="myButton" id="generate" type="submit">Submit</button>-->
+          </form>
+        </div>
+      </div>
+    </div>
+
+      <div class="rightSide">
+        <div class="resContainer">
+          <div class="response" id="resImg">
+            <h2 class="resCity"></h2>
+              <div id="weathersum">
+                <canvas class="icon" width="60" height="60"></canvas>
+                <h2 class="degree"></h2>
+                <div class="tempDescrip"></div>
+                <div id="countryDes"></div>
+              </div>
+            <div id="countDown"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/skycons.js"></script>
+  <script src="../js/app.js" type="text/javascript"></script>
+    <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+
+    </script>
+  
+
+</body>
+</html>
